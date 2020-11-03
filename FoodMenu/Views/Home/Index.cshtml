@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <header>
+        <!-- Project Scripts Loaded here instea dof _layout.cshtml as partial views will need these scripts placed here.
+        And placing scripts in more than one place can cause conflict issues-->
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="~/js/Food/PizzaScripts.js"></script>
+        <script src="~/js/Food/BurgerScripts.js"></script>
+
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+
+        <!--End Project Scritps-->
+
+        <div class="text-center">
+            <h1 class="display-3">Menu</h1>
+            <br />
+            <br />
+        </div>
+    </header>
+    <body>
+        <br />
+        <div class="text-center">
+            <h3 class="display-4">Burgers</h3>
+            <br />
+            <br />
+        </div>
+
+        @*Implement Pizza Modal*@
+
+        <div class="modal fade" id="pizzaModal" role="dialog" style="display:none">
+            
+            @{await Html.RenderPartialAsync("PizzaPartialView", new FoodMenu.Models.FoodItems());}
+
+            <script>
+
+                $('#pizzaModal').on('hidden.bs.modal', function () {
+
+                    //hide modal sections
+                    $('#pizzaBases').hide('slow');
+                    $('#pizzaExtras').hide('slow');
+
+
+                    //If user exits a food item modal, the modal list is cleared, along with
+                    // the total modal price and the food item name.
+
+                    modalItems = [];
+                    modalCats = [];
+                    modalPrices = []
+                    modalTotalPrice = 0;
+                    itemName = "";
+                    
+
+                });
+
+            </script>
+
+
+        </div>
+
+        @*End Pizza Modal Implementation*@
+
+
+        @*Implement Burger Modal*@
+
+        <div class="modal fade" id="burgerModal" role="dialog" style="display:none">
+
+            @{await Html.RenderPartialAsync("BurgerPartialView", new FoodMenu.Models.FoodItems());}
+
+            <script>
+
+                $('#burgerModal').on('hidden.bs.modal', function () {
+                    //window.alert('hidden event fired!');
+                    //location.reload();
+                    $('#burgerSauces').hide('slow');
+                    $('#burgerExtras').hide('slow');
+
+
+                    modalItems = [];
+                    modalCats = [];
+                    modalPrices = []
+                    modalTotalPrice = 0;
+                    itemName = "";
+
+                });
+
+            </script>
+
+
+        </div>
+
+        @*End Burger Modal Implementation*@
+
+
+        @*<section>*@
+        <!--Burger button - this will show the burger section view - refer to main Javascript file -->
+        @*<button class="btn btn-success display-4" id="btnBurger">Burgers</button>
+
+        <section id="burgers" style="display:none">*@
+
+
+
+        <script>
+            //load food table skeleton
+            BurgerScripts.FoodItemTable('burgerTable');
+
+            var burgerTable = $("#burgerTable");
+
+            //Call food list function to load the relevant food table 
+
+            $(document).ready(function () {
+
+                BurgerScripts.FoodList(burgerTable, 'Burgers');
+
+            });
+
+          
+
+        </script>
+        <!--Burger hide button - this will hide the burger section view - refer to main Javascript file -->
+        @*<button id=burgerHide class="btn btn-primary">Hide</button>*@
+        @*</section>*@
+
+
+        <br />
+        <div class="text-center">
+            <h3 class="display-4">Pizzas</h3>
+            <br />
+            <br />
+        </div>
+
+        <script>
+
+            //load food table skeleton
+            PizzaScripts.FoodItemTable('pizzaTable');
+
+            var pizzaTable = $("#pizzaTable");
+
+            //chillCats('#PizaaTbl')
+
+            //Call food list function to load the relevant food table 
+
+
+            $(document).ready(function () {
+
+
+
+                PizzaScripts.FoodList(pizzaTable, 'Pizzas');
+
+             
+
+            });
+
+        </script>
+
+    </body>

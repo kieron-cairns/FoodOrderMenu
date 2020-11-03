@@ -1,0 +1,274 @@
+﻿
+<div class="container">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="pizza-title food_label" style="width:130%;" font-size:30px;" id="pizza-title"></h4>
+
+                @*User button to close the modal*@
+
+                <button type="button" class="close" id="closePizzaModal" data-dismiss="modal">&times;</button>
+            </div>
+         
+
+            <div class="modal-body">
+                <input type="hidden" id="name" value="@Model.Name" />
+             
+            </div>
+
+            @*Description of item that user has selected*@ 
+            <label name="pizza-description" class="partial_view_items" id="pizza-description" placeholder="Item Description" style="text-align:center;"></label>
+
+
+            <div>
+
+                @*Implement Item Size Table Skeleton*@
+
+                <table id="pizzaSizeTable" class="table table-hover" cellspacing="0" style="width:100%">
+                    <colgroup>
+                        <col span="1" style="width:80%; height:50px;" />
+                        <col span="1" style="width:20%;" />
+
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+
+                            <th></th>
+                        </tr>
+
+                    </thead>
+                </table>
+
+
+
+                @*End Item Size Table Skeleton*@
+
+
+                
+
+                @*Implement Pizza Base Table Skeleton*@
+
+            <section id="pizzaBases" style="display:none">
+
+                <!--This section will only show when an item size is clicked -->
+
+                <h3>Pick a base</h3>
+
+                <table id="pizzaBaseTable" class="table table-hover" cellspacing="0" style="width:100%">
+                    <colgroup>
+                        <col span="1" style="width:80%; height:50px;" />
+
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+                        </tr>
+
+                    </thead>
+                </table>
+
+                @*End Pizza Base Table Skeleton*@
+
+                @*End Pizza Base Section*@
+
+            </section>
+
+                <section id="pizzaExtras" style="display:none">
+
+                    @*End Pizza Base Table Skeleton*@
+
+                    @*Implement Pizza Extras Table Skeleton*@
+
+                    <h3>Optional Extras</h3>
+
+                    <table id="pizzaExtrasTable" class="table table-hover" cellspacing="0" style="width:100%">
+                        <colgroup>
+                            <col span="1" style="width:80%; height:50px;" />
+                            <col span="1" style="width:20%;" />
+
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                    </table>
+
+                    @*End Pizza Extras Table Skeleton*@
+
+
+                    <button id="btnPizzaOrder" disabled class="btn btn-success btnOrder" onclick="PizzaScripts.AddToOrder()">Add to Order</button>
+                    @*End of section*@
+
+
+
+
+                </section>
+
+
+               
+
+                <!----------------------------------------------------------------------------------->
+                <!--  Scripts section to populate the above table sekeltons via jquery datatables  -->
+                <!----------------------------------------------------------------------------------->
+
+                <script>
+
+                    //Call the relevant tables for food item
+
+                    var pizzaSizeTable = $("#pizzaSizeTable");
+
+                    //This function will load the pizza table with the matching price bracket of that product
+
+                    function LoadPizzaSizes(priceBracket) {
+
+                        console.log(priceBracket);
+
+                        PizzaScripts.SizeList(pizzaSizeTable, 'PizzaSizes', priceBracket);
+
+                    }
+
+                    
+
+                </script>
+
+                <script>
+                    var pizzaBaseTable = $('#pizzaBaseTable');
+
+                    function LoadPizzaBases() {
+
+
+                        PizzaScripts.PizzaBaseList(pizzaBaseTable, 'PizzaBases');
+
+
+                    }
+
+
+                    var buttonPrice = $('#buttonPrice');
+
+                    var extrasPizzaTable = $('#pizzaExtrasTable');
+
+                    //below method will remove highlights from tables if pizza size
+                    //table is re-selected
+                    //This would come into use if a user selects a different size 
+                    //and clears all arrays to start from scratch.
+
+                    //$(pizzaSizeTable).on('click', 'tbody td', function () {
+
+                    //    FoodListScripts.PizzaExtrasList(pizzaBaseTable, 'PizzaBases');
+                    //    FoodListScripts.PizzaExtrasList(pizzaBaseTable, 'PizzaExtras');
+
+
+                    //})
+
+                    //load the pizza extras table.
+
+                    $(document).ready(function () {
+
+
+                        PizzaScripts.PizzaExtrasList(extrasPizzaTable, 'PizzaExtras');
+
+
+                    });
+
+
+
+                    $(pizzaBaseTable).on('click', 'tbody td', function () {
+
+                        //With help from a stack overflow question : https://stackoverflow.com/questions/35547647/how-to-make-datatable-row-or-cell-clickable
+
+                        var data = $('#pizzaBaseTable').DataTable().row($(this).parents('tr')).data();
+                        console.log(data);
+
+
+
+                    })
+
+
+                    $(extrasPizzaTable).on('click', 'tbody td', function () {
+
+                        console.log(this.parentNode.rowIndex)
+
+
+                        //FoodListScripts.SumModalList(buttonPrice, this.parentNode.rowIndex, "PizzaExtras");
+
+
+                    })
+
+
+
+
+                    $(pizzaSizeTable).on('click', 'tbody td', function () {
+
+                        //With help from a stack overflow question : https://stackoverflow.com/questions/35547647/how-to-make-datatable-row-or-cell-clickable
+
+                        //Get table row on click
+
+                        console.log(this.parentNode.rowIndex)
+
+
+
+                        //console.log(pizzaSizeTable.row(this.data()));
+
+                        //Call function here that will add the size price to the modal list order
+
+
+                        //FoodListScripts.SumModalList(buttonPrice, this.parentNode.rowIndex, "PizzaSizes");
+
+
+                    })
+
+                </script>
+
+                @*End Pizza Base Table Skeleton*@
+
+                <script>
+
+                    //Highlight pizza size row that is selected & show the Pizza base option table
+
+                    $('#pizzaSizeTable').on('click', 'tbody tr', function (event) {
+                        $(this).addClass('highlight').siblings().removeClass('highlight');
+
+                        //Show pizza bases table when pizza size is selected 
+
+                        $('#pizzaBases').show('slow');
+
+
+
+
+                    });
+                    //Highlight pizza base row that is selected
+
+                    $('#pizzaBaseTable').on('click', 'tbody tr', function (event) {
+                        $(this).addClass('highlight').siblings().removeClass('highlight');
+
+                        $('#pizzaExtras').show('slow');
+
+
+                    });
+
+                    $('#pizzaExtrasTable').on('click', 'tbody tr', function (event) {
+                        $(this).addClass('highlight').siblings();
+
+
+                    });
+
+
+                </script>
+
+                <script>
+                    $('#closePizzaModal').on('click', function () {
+                        //$('#pizzaBases').hide('slow');
+                    })
+
+                </script>
+
+            </div>
+        </div>
+
+    </div>
+</div>

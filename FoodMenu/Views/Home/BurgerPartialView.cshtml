@@ -1,0 +1,168 @@
+﻿<div class="container">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="burger-title food_label" style="width:130%;" font-size:30px;" id="burger-title"></h4>
+
+                <button type="button" class="close" id="closeBurgerModal" data-dismiss="modal">&times;</button>
+            </div>
+            @*<h4 class="modal-title food_label" style="text-align:center;" font-size:30px;" id="modal-title"></h4>
+                <button type="button" class="close" id="closePizzaModal" style="width:100%;" data-dismiss="modal">&times;</button>*@
+
+            <div class="modal-body">
+                <input type="hidden" id="name" value="@Model.Name" />
+
+
+            </div>
+
+            <label name="burger-description" class="partial_view_items" id="burger-description" placeholder="Item Description" style="text-align:center;"></label>
+
+
+            <div>
+
+                @*Implement Item Size Table Skeleton*@
+
+                <table id="burgerSizeTable" class="table table-hover" cellspacing="0" style="width:100%">
+                    <colgroup>
+                        <col span="1" style="width:80%; height:50px;" />
+                        <col span="1" style="width:20%;" />
+
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th></th>
+
+                            <th></th>
+                        </tr>
+
+                    </thead>
+                </table>
+
+                <section id="burgerSauces" style="display:none">
+
+                    @*End Pizza Base Table Skeleton*@
+
+                    @*Implement Pizza Extras Table Skeleton*@
+
+                    <h3>Pick A Sauce</h3>
+
+                    <table id="burgerSaucesTable" class="table table-hover" cellspacing="0" style="width:100%">
+                        <colgroup>
+                            <col span="1" style="width:80%; height:50px;" />
+                            <col span="1" style="width:20%;" />
+
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                    </table>
+
+                    @*<button id="btnOrder" disabled class="btn btn-success btnOrder" onclick="BurgerScripts.AddToOrder()">Add to Order</button>*@
+
+                </section>
+
+                <section id="burgerExtras" style="display:none">
+
+                    @*End Pizza Base Table Skeleton*@
+
+                    @*Implement Pizza Extras Table Skeleton*@
+
+                    <h3>Pick optional extras</h3>
+
+                    <table id="burgerExtrasTable" class="table table-hover" cellspacing="0" style="width:100%">
+                        <colgroup>
+                            <col span="1" style="width:80%; height:50px;" />
+                            <col span="1" style="width:20%;" />
+
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+                    </table>
+
+                    <button id="btnBurgerOrder" disabled class="btn btn-success btnOrder" onclick="BurgerScripts.AddToOrder()">Add to Order</button>
+
+                </section>
+
+
+                <!----------------------------------------------------------------------------------->
+                <!--  Scripts section to populate the above table sekeltons via jquery datatables  -->
+                <!----------------------------------------------------------------------------------->
+
+                <script>
+
+                    //Populate the item size table
+
+                    var burgerSizeTable = $("#burgerSizeTable");
+
+                    //Call the FoodList funnction fromFoodListScript Javascript file. Pass the tble paramter to the datatable
+                    //function and also pass the SQL table querys.
+
+                    function LoadBurgerSizes(priceBracket) {
+
+
+                        BurgerScripts.SizeList(burgerSizeTable, 'BurgerSizes', priceBracket);
+                    }
+
+                </script>
+
+                <script>
+
+                    var burgerSaucesTable = $('#burgerSaucesTable');
+
+                    $(document).ready(function () {
+
+                        BurgerScripts.BurgerSaucesList(burgerSaucesTable, 'BurgerSauces');
+
+
+                    });
+                </script>
+
+                <script>
+
+                    var burgerExtrasTable = $('#burgerExtrasTable');
+
+                    function LoadBurgerSauces() {
+
+                        BurgerScripts.BurgerExtrasList(burgerExtrasTable, 'BurgerExtras');
+
+                    }
+
+                </script>
+
+                <script>
+
+                    //Highlight pizza size row that is selected & show the Pizza base option table
+
+                    $('#burgerSizeTable').on('click', 'tbody tr', function (event) {
+                        $(this).addClass('highlight').siblings().removeClass('highlight');
+
+                        //Show pizza bases table when pizza size is selected
+
+                        $('#burgerSauces').show('slow');
+                    });
+
+                    $('#burgerSaucesTable').on('click', 'tbody tr', function (event) {
+                        $(this).addClass('highlight').siblings().removeClass('highlight');
+
+                        //Show pizza bases table when pizza size is selected
+
+                        $('#burgerExtras').show('slow');
+                    });
+
+
+                </script>
+
+            </div>
+            </div>
+        </div>
+    </div>
