@@ -21,7 +21,7 @@
 
             <div>
 
-                @*Implement Item Size Table Skeleton*@
+                @*Implement Burger Size Table Skeleton*@
 
                 <table id="burgerSizeTable" class="table table-hover" cellspacing="0" style="width:100%">
                     <colgroup>
@@ -41,9 +41,9 @@
 
                 <section id="burgerSauces" style="display:none">
 
-                    @*End Pizza Base Table Skeleton*@
+                    @*End Burger Size Table Skeleton*@
 
-                    @*Implement Pizza Extras Table Skeleton*@
+                    @*Implement Burger Sauce Table Skeleton*@
 
                     <h3>Pick A Sauce</h3>
 
@@ -65,12 +65,13 @@
                     @*<button id="btnOrder" disabled class="btn btn-success btnOrder" onclick="BurgerScripts.AddToOrder()">Add to Order</button>*@
 
                 </section>
+                @*End Burger Sauce Table Skeleton*@
+
+                @*Start Burger Extras Table Skeleton*@
 
                 <section id="burgerExtras" style="display:none">
 
-                    @*End Pizza Base Table Skeleton*@
 
-                    @*Implement Pizza Extras Table Skeleton*@
 
                     <h3>Pick optional extras</h3>
 
@@ -92,6 +93,9 @@
                     <button id="btnBurgerOrder" disabled class="btn btn-success btnOrder" onclick="BurgerScripts.AddToOrder()">Add to Order</button>
 
                 </section>
+                
+                @*End Burger Extras Table Skeleton*@
+
 
 
                 <!----------------------------------------------------------------------------------->
@@ -141,12 +145,12 @@
 
                 <script>
 
-                    //Highlight pizza size row that is selected & show the Pizza base option table
+                    //Highlight burger size row that is selected & show the Pizza base option table
 
                     $('#burgerSizeTable').on('click', 'tbody tr', function (event) {
                         $(this).addClass('highlight').siblings().removeClass('highlight');
 
-                        //Show pizza bases table when pizza size is selected
+                        //Show burger sauces table when pizza size is selected
 
                         $('#burgerSauces').show('slow');
                     });
@@ -154,7 +158,7 @@
                     $('#burgerSaucesTable').on('click', 'tbody tr', function (event) {
                         $(this).addClass('highlight').siblings().removeClass('highlight');
 
-                        //Show pizza bases table when pizza size is selected
+                        //Show burger extras table when pizza size is selected
 
                         $('#burgerExtras').show('slow');
                     });
