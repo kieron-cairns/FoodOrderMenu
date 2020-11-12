@@ -1,0 +1,22 @@
+ExtraName,ExtraPrice
+Onion,0.25
+Cheese,0.25
+Pepper,0.25
+Jalapeno,0.25
+Size,Bracket,SizePrice,ID
+07" Regular,1,3.5,1
+09" Medium,1,4.9,2
+12" Large,1,6.6,3
+14" Family,1,7.5,4
+07" Regular,2,4,5
+09" Medium,2,6.1,6
+12" Large,2,7.7,7
+14" Family,2,8.7,8
+07" Regular,3,4.5,9
+09" Medium,3,6.5,11
+12" Large,3,8.5,12
+14" Family,3,10,13
+07" Regular,4,4.7,18
+09" Medium,4,6.8,15
+12" Large,4,8.8,16
+14" Family,4,10,17

@@ -1,0 +1,26 @@
+ExtraName,ExtraPrice,ID
+Anchovies,1,1
+Bacon,1,2
+Baked Beans,1,3
+BBQ Sauce,1,4
+Black Olives,1,5
+Caju Chicken,1,6
+Chicken,1,7
+Donner Meat,1,8
+Fresh Tomato,1,9
+Green Chillies,1,10
+Green Peppers,1,11
+Ham,1,12
+Jalapeno,1,13
+Mexican Chicken,1,14
+Mushroom,1,15
+Mussels,1,16
+Onion,1,17
+Pepperoni,1,18
+Prawn,1,19
+Salami,1,20
+Sausage,1,21
+Spicy Beef,1,22
+Sweetcorn,1,23
+Tandoori Chicken,1,24
+Tuna,1,25

@@ -1,0 +1,6 @@
+Name,Description,InitPrice,SizePriceBracket
+Beef Burger,Mans got beef ;),2.7999999999999998,1
+Chicken Burger,Speciality chicken,3,2
+Vegi Burger,Vegetarian,3,2
+Texas BBQ Burger,BBQ sauce, onion rings & cheese,3.3999999999999999,3
+Cheese & Pineapple Burger,Zesty pineapple,3.3999999999999999,3

@@ -1,0 +1,4 @@
+BaseType,ID,Bracket
+BBQ Base,1,1
+Garlic Base,2,1
+Tomato Base,3,1

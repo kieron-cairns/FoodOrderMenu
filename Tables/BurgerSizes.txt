@@ -1,0 +1,7 @@
+Size,Bracket,SizePrice,ID
+Quater Pounder,1,2,1
+Half Pounder,1,3.8,2
+Quater Pounder,2,3,3
+Half Punder ,2,4,4
+Quater Pounder,3,3.4,5
+Half Pounder,3,4.3,6

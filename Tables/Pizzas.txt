@@ -1,0 +1,7 @@
+Name,Description,InitPrice,SizePriceBracket
+Margherrita,Cheese & pizza sauce,3.5,1
+Hawaiian,Ham, mushroom & pineapple,4,2
+Tuna Special,Tuna, sweetcorn & onions,4,2
+Vegetarian,Mushrooms, onions, peppers, sweetcorn & tomato,4.7000000000000002,4
+Spicy Chicken,Chicken, onions, mushroom, pepper & jalapenos,4.7000000000000002,4
+Chicken Tandoori,Tandoori chicken, onions & green peppers,4.5,3

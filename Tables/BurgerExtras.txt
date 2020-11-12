@@ -1,0 +1,6 @@
+ExtraName,ExtraPrice
+Onion,0.25
+Cheese,0.25
+Pepper,0.25
+Jalapeno,0.25
+

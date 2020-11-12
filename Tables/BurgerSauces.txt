@@ -1,0 +1,11 @@
+SauceName,SaucePrice
+BBQ Sauce,0
+Garlic Mayo,0
+Hot Chili Sauce,0
+Ketchup,0
+Mayo,0
+Mild Chili Sauce,0
+Mint Mayo,0
+No Sauce,0
+Relish Sauce,0
+Sweet Chili Sauce,0
