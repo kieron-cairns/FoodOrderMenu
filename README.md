@@ -1,4 +1,4 @@
-# FoodOrderMenu
+# C# SQL FoodOrderMenu
 Simple food menu ordering app, written in .Net Core that uses JavaScript and Jquery DataTables, populated via SQL 
 
 TODO:
