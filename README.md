@@ -1,5 +1,5 @@
 # C# SQL FoodOrderMenu
-Simple food menu ordering app, written in .Net Core that uses JavaScript and Jquery DataTables, populated via SQL 
+Simple food menu ordering app, written in .Net Core that uses JavaScript and Jquery DataTables, populated via SQL (under development)
 
 TODO:
 
@@ -13,9 +13,9 @@ To allow this app to work on your PC, create a database called FoodMenu in SQL s
 (I know this is cumbersome, sorry. I will soon provide a query you can copy and paste)
 
 Latly change your conneciton string in appsettings.json and run this query on the FoodMenu database:
-
+```
 alter database [FoodMenu] set enable_broker with rollback immediate;
-
+```
 Screenshots:
 
 <h2>Main Menu</h2>
